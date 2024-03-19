@@ -1,0 +1,40 @@
+unit uMain;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, System.Actions, Vcl.ActnList,
+  Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnMan, Vcl.ToolWin, Vcl.ActnCtrls,
+  Vcl.ActnMenus;
+
+type
+  TmainForm = class(TForm)
+    ActionManager1: TActionManager;
+    actconnect: TAction;
+    actdisconnect: TAction;
+    actexitapp: TAction;
+    actaddprofile: TAction;
+    acteditprofile: TAction;
+    actdeleteprofile: TAction;
+    ActionMainMenuBar1: TActionMainMenuBar;
+    procedure actexitappExecute(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  mainForm: TmainForm;
+
+implementation
+
+{$R *.dfm}
+
+procedure TmainForm.actexitappExecute(Sender: TObject);
+begin
+application.Terminate;
+end;
+
+end.

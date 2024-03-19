@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2024/03/19 12:53:58.742,=C:\Users\LENOVO\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/03/19 13:04:14.910,C:\Users\LENOVO\Documents\Embarcadero\Studio\Projects\Profile Management\uMain.dfm=C:\Users\LENOVO\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2024/03/19 13:04:14.910,C:\Users\LENOVO\Documents\Embarcadero\Studio\Projects\Profile Management\uMain.pas=C:\Users\LENOVO\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/03/19 13:04:34.262,C:\Users\LENOVO\Documents\Embarcadero\Studio\Projects\Profile Management\Profile.dproj=C:\Users\LENOVO\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2024/03/19 13:55:52.517,=C:\Users\LENOVO\Documents\Embarcadero\Studio\Projects\Profile Management\Unit1.pas</Transaction>
+    <Transaction>2024/03/19 13:57:48.337,C:\Users\LENOVO\Documents\Embarcadero\Studio\Projects\Profile Management\udbModule.dfm=C:\Users\LENOVO\Documents\Embarcadero\Studio\Projects\Profile Management\Unit1.dfm</Transaction>
+    <Transaction>2024/03/19 13:57:48.337,C:\Users\LENOVO\Documents\Embarcadero\Studio\Projects\Profile Management\udbModule.pas=C:\Users\LENOVO\Documents\Embarcadero\Studio\Projects\Profile Management\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

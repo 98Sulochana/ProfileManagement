@@ -1,0 +1,5 @@
+object dbModule: TdbModule
+  Height = 501
+  Width = 780
+  PixelsPerInch = 120
+end
