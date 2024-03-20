@@ -83,7 +83,10 @@ object dbModule: TdbModule
     Top = 80
   end
   object SQLQuery1: TSQLQuery
+    DataSource = profilesSource
+    MaxBlobSize = -1
     Params = <>
+    SQLConnection = SQLConnection1
     Left = 576
     Top = 80
   end

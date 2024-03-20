@@ -23,6 +23,7 @@ object mainForm: TmainForm
     Top = 0
     Width = 803
     Height = 25
+    UseSystemFont = False
     ActionManager = ActionManager1
     Caption = 'ActionMainMenuBar1'
     Color = clMenuBar
@@ -32,12 +33,12 @@ object mainForm: TmainForm
     ColorMap.SelectedFontColor = clWhite
     ColorMap.UnusedColor = clWhite
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
+    Font.Color = clBlack
     Font.Height = -15
     Font.Name = 'Segoe UI'
     Font.Style = []
     Spacing = 0
-    ExplicitLeft = 24
+    ExplicitWidth = 797
   end
   object DBGrid1: TDBGrid
     Left = 0
@@ -105,15 +106,22 @@ object mainForm: TmainForm
               end
               item
                 Action = actaddprofile
+                Caption = '&Add Profile'
               end
               item
                 Action = acteditprofile
+                Caption = '&Edit Profile'
               end
               item
                 Action = actdeleteprofile
+                Caption = 'De&lete Profile'
               end
               item
                 Action = actexitapp
+                Caption = 'E&xit Application'
+              end
+              item
+                Action = actrefreshdata
               end>
             Caption = '&Profiles'
           end>
@@ -136,12 +144,17 @@ object mainForm: TmainForm
     end
     object actaddprofile: TAction
       Caption = 'Add Profile'
+      OnExecute = actaddprofileExecute
     end
     object acteditprofile: TAction
       Caption = 'Edit Profile'
     end
     object actdeleteprofile: TAction
       Caption = 'Delete Profile'
+    end
+    object actrefreshdata: TAction
+      Caption = 'Refresh Data'
+      OnExecute = actrefreshdataExecute
     end
   end
 end
