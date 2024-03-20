@@ -148,6 +148,7 @@ object mainForm: TmainForm
     end
     object acteditprofile: TAction
       Caption = 'Edit Profile'
+      OnExecute = acteditprofileExecute
     end
     object actdeleteprofile: TAction
       Caption = 'Delete Profile'

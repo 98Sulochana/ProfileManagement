@@ -25,6 +25,7 @@ type
     procedure actdisconnectExecute(Sender: TObject);
     procedure actaddprofileExecute(Sender: TObject);
     procedure actrefreshdataExecute(Sender: TObject);
+    procedure acteditprofileExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -38,7 +39,7 @@ implementation
 
 {$R *.dfm}
 
-uses udbModule, uAddProfile;
+uses udbModule, uAddProfile, uEditProfile;
 
 //'Add Profile' option implementation  for add a profile to database
 procedure TmainForm.actaddprofileExecute(Sender: TObject);
@@ -79,6 +80,32 @@ procedure TmainForm.actdisconnectExecute(Sender: TObject);
 begin
 dbModule.SQLConnection1.Connected:=false;
 dbModule.profilesDataset.Active:=false;
+end;
+
+//'Edit Profile' option implementation for edit profile details
+procedure TmainForm.acteditprofileExecute(Sender: TObject);
+begin
+if (dbModule.SQLConnection1.Connected) and (dbModule.profilesDataset.IsEmpty=false) then
+  begin
+
+  editProfileForm.Edit1.Text:=dbModule.profilesDatasetname.Value;
+  editProfileForm.Edit2.Text:=dbModule.profilesDatasetaddress.Value;
+  editProfileForm.Edit3.Text:=dbModule.profilesDatasettel.Value;
+  editProfileForm.Edit4.Text:=dbModule.profilesDatasetdob.Value;
+  if editProfileForm.ShowModal=mrok then
+    begin
+
+      //Sql quary implementation for edit data in database
+      dbModule.SQLQuery1.SQL.Clear;
+      dbModule.SQLQuery1.SQL.Add('UPDATE `delphi_dev`.`profiles` SET `name` = '''+editProfileForm.Edit1.Text+''', `address` = '''+editProfileForm.Edit2.Text+''', `tel` = '''+editProfileForm.Edit3.Text+''', `dob` = '''+editProfileForm.Edit4.Text+''' WHERE (`id` = '''+inttostr(dbModule.profilesDatasetid.Value)+''')');
+      dbModule.SQLQuery1.ExecSQL(true);
+
+      //Refresh data
+      actrefreshdata.Execute;
+
+    end;
+
+  end;
 end;
 
 //'Exit application' option implementation for exit from application

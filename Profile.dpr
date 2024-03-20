@@ -4,7 +4,8 @@ uses
   Vcl.Forms,
   uMain in 'uMain.pas' {mainForm},
   udbModule in 'udbModule.pas' {dbModule: TDataModule},
-  uAddProfile in 'uAddProfile.pas' {addProfileForm};
+  uAddProfile in 'uAddProfile.pas' {addProfileForm},
+  uEditProfile in 'uEditProfile.pas' {editProfileForm};
 
 {$R *.res}
 
@@ -14,5 +15,6 @@ begin
   Application.CreateForm(TmainForm, mainForm);
   Application.CreateForm(TdbModule, dbModule);
   Application.CreateForm(TaddProfileForm, addProfileForm);
+  Application.CreateForm(TeditProfileForm, editProfileForm);
   Application.Run;
 end.

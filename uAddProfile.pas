@@ -50,4 +50,9 @@ if gasit then
   end;
 end;
 
+//procedure TaddProfileForm.FormShow(Sender: TObject);
+//begin
+//edit1.SetFocus;
+//end;
+
 end.

@@ -111,6 +111,10 @@
             <Form>addProfileForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="uEditProfile.pas">
+            <Form>editProfileForm</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
