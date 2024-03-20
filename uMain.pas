@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, System.Actions, Vcl.ActnList,
   Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnMan, Vcl.ToolWin, Vcl.ActnCtrls,
-  Vcl.ActnMenus, Data.DB, Vcl.Grids, Vcl.DBGrids;
+  Vcl.ActnMenus, Data.DB, Vcl.Grids, Vcl.DBGrids, Vcl.Menus, Vcl.ActnPopup;
 
 type
   TmainForm = class(TForm)
@@ -20,12 +20,17 @@ type
     ActionMainMenuBar1: TActionMainMenuBar;
     DBGrid1: TDBGrid;
     actrefreshdata: TAction;
+    PopupActionBar1: TPopupActionBar;
+    AddProfile1: TMenuItem;
+    EditProfile1: TMenuItem;
+    DeleteProfile1: TMenuItem;
     procedure actexitappExecute(Sender: TObject);
     procedure actconnectExecute(Sender: TObject);
     procedure actdisconnectExecute(Sender: TObject);
     procedure actaddprofileExecute(Sender: TObject);
     procedure actrefreshdataExecute(Sender: TObject);
     procedure acteditprofileExecute(Sender: TObject);
+    procedure actdeleteprofileExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -39,7 +44,7 @@ implementation
 
 {$R *.dfm}
 
-uses udbModule, uAddProfile, uEditProfile;
+uses udbModule, uAddProfile, uEditProfile, uDeleteProfile;
 
 //'Add Profile' option implementation  for add a profile to database
 procedure TmainForm.actaddprofileExecute(Sender: TObject);
@@ -73,6 +78,24 @@ procedure TmainForm.actconnectExecute(Sender: TObject);
 begin
 dbModule.SQLConnection1.Connected:=true;
 dbModule.profilesDataset.Active:=true;
+end;
+
+//'Delete Profile' option implementation for delete profile details from database
+procedure TmainForm.actdeleteprofileExecute(Sender: TObject);
+begin
+if (dbModule.SQLConnection1.Connected) and (dbModule.profilesDataset.IsEmpty=false) then
+  if deleteProfileForm.ShowModal=mrok then
+    begin
+    //Sql quary implementation for delete data from database
+    dbModule.SQLQuery1.SQL.Clear;
+    dbModule.SQLQuery1.SQL.Add('DELETE FROM `delphi_dev`.`profiles` WHERE (`id` = '''+inttostr(dbModule.profilesDatasetid.Value)+''');');
+    dbModule.SQLQuery1.ExecSQL(true);
+
+    //Refresh data
+    actrefreshdata.Execute;
+
+    end;
+
 end;
 
 //'Disconnect' option implementation for disconnect application from database

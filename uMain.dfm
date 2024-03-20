@@ -48,12 +48,14 @@ object mainForm: TmainForm
     Anchors = [akLeft, akTop, akRight, akBottom]
     DataSource = dbModule.profilesSource
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    PopupMenu = PopupActionBar1
     TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -12
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
+    OnDblClick = acteditprofileExecute
     Columns = <
       item
         Expanded = False
@@ -152,10 +154,24 @@ object mainForm: TmainForm
     end
     object actdeleteprofile: TAction
       Caption = 'Delete Profile'
+      OnExecute = actdeleteprofileExecute
     end
     object actrefreshdata: TAction
       Caption = 'Refresh Data'
       OnExecute = actrefreshdataExecute
+    end
+  end
+  object PopupActionBar1: TPopupActionBar
+    Left = 344
+    Top = 136
+    object AddProfile1: TMenuItem
+      Action = actaddprofile
+    end
+    object EditProfile1: TMenuItem
+      Action = acteditprofile
+    end
+    object DeleteProfile1: TMenuItem
+      Action = actdeleteprofile
     end
   end
 end

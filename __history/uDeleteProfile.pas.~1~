@@ -1,0 +1,24 @@
+unit uDeleteProfile;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+
+type
+  TdeleteProfileForm = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  deleteProfileForm: TdeleteProfileForm;
+
+implementation
+
+{$R *.dfm}
+
+end.
