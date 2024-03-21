@@ -142,7 +142,7 @@ object addProfileForm: TaddProfileForm
     TabOrder = 3
     Text = 'Edit1'
   end
-  object Button1: TButton
+  object btncancel: TButton
     Left = 128
     Top = 288
     Width = 100
@@ -160,7 +160,7 @@ object addProfileForm: TaddProfileForm
     TabOrder = 4
     ExplicitTop = 279
   end
-  object Button2: TButton
+  object btnsave: TButton
     Left = 316
     Top = 288
     Width = 100
@@ -175,7 +175,7 @@ object addProfileForm: TaddProfileForm
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 5
-    OnClick = Button2Click
+    OnClick = btnsaveClick
     ExplicitLeft = 310
     ExplicitTop = 279
   end

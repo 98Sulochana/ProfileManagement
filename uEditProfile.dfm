@@ -89,7 +89,7 @@ object editProfileForm: TeditProfileForm
     TabOrder = 3
     Text = 'Edit1'
   end
-  object Button1: TButton
+  object btncancel: TButton
     Left = 128
     Top = 288
     Width = 100
@@ -107,7 +107,7 @@ object editProfileForm: TeditProfileForm
     TabOrder = 4
     ExplicitTop = 279
   end
-  object Button2: TButton
+  object btnedit: TButton
     Left = 322
     Top = 288
     Width = 100
@@ -122,7 +122,7 @@ object editProfileForm: TeditProfileForm
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 5
-    OnClick = Button2Click
+    OnClick = btneditClick
     ExplicitLeft = 316
     ExplicitTop = 279
   end

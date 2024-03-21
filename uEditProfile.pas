@@ -18,9 +18,9 @@ type
     editaddress: TEdit;
     edittel: TEdit;
     editdob: TEdit;
-    Button1: TButton;
-    Button2: TButton;
-    procedure Button2Click(Sender: TObject);
+    btncancel: TButton;
+    btnedit: TButton;
+    procedure btneditClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -34,7 +34,7 @@ implementation
 
 {$R *.dfm}
 
-procedure TeditProfileForm.Button2Click(Sender: TObject);
+procedure TeditProfileForm.btneditClick(Sender: TObject);
 var
   gasit: boolean;
 begin

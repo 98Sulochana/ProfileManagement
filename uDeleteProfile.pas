@@ -10,9 +10,9 @@ uses
 type
   TdeleteProfileForm = class(TForm)
     Label1: TLabel;
-    Button1: TButton;
-    Button2: TButton;
-    procedure Button1Click(Sender: TObject);
+    btndelete: TButton;
+    btncancel: TButton;
+    procedure btndeleteClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -26,7 +26,7 @@ implementation
 
 {$R *.dfm}
 
-procedure TdeleteProfileForm.Button1Click(Sender: TObject);
+procedure TdeleteProfileForm.btndeleteClick(Sender: TObject);
 begin
   close;
   modalresult := mrok;

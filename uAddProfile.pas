@@ -17,10 +17,10 @@ type
     edittel: TEdit;
     lbldob: TLabel;
     editdob: TEdit;
-    Button1: TButton;
-    Button2: TButton;
+    btncancel: TButton;
+    btnsave: TButton;
     Label5: TLabel;
-    procedure Button2Click(Sender: TObject);
+    procedure btnsaveClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -35,7 +35,7 @@ implementation
 {$R *.dfm}
 
 // Save button function for adding a profile
-procedure TaddProfileForm.Button2Click(Sender: TObject);
+procedure TaddProfileForm.btnsaveClick(Sender: TObject);
 var
   gasit: Boolean;
 begin
