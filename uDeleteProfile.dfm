@@ -4,8 +4,8 @@ object deleteProfileForm: TdeleteProfileForm
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Delete Profile'
-  ClientHeight = 112
-  ClientWidth = 329
+  ClientHeight = 103
+  ClientWidth = 323
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,8 +15,8 @@ object deleteProfileForm: TdeleteProfileForm
   Position = poDesktopCenter
   ScreenSnap = True
   DesignSize = (
-    329
-    112)
+    323
+    103)
   TextHeight = 15
   object Label1: TLabel
     Left = 16
@@ -26,8 +26,8 @@ object deleteProfileForm: TdeleteProfileForm
     Caption = 'Do you want to delete selected profile?'
   end
   object Button1: TButton
-    Left = 203
-    Top = 53
+    Left = 191
+    Top = 44
     Width = 89
     Height = 25
     Anchors = [akRight, akBottom]
@@ -41,10 +41,12 @@ object deleteProfileForm: TdeleteProfileForm
     ParentFont = False
     TabOrder = 0
     OnClick = Button1Click
+    ExplicitLeft = 203
+    ExplicitTop = 53
   end
   object Button2: TButton
     Left = 32
-    Top = 53
+    Top = 44
     Width = 89
     Height = 25
     Anchors = [akLeft, akBottom]
@@ -58,5 +60,6 @@ object deleteProfileForm: TdeleteProfileForm
     ModalResult = 3
     ParentFont = False
     TabOrder = 1
+    ExplicitTop = 53
   end
 end

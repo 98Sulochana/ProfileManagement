@@ -3,7 +3,8 @@ unit uEditProfile;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
 
 type
@@ -34,18 +35,23 @@ implementation
 {$R *.dfm}
 
 procedure TeditProfileForm.Button2Click(Sender: TObject);
-var gasit:boolean;
+var
+  gasit: boolean;
 begin
-//Validation for fields
-gasit:=true;
-if edit1.Text='' then gasit:=false; // Not null fields
-if edit2.Text='' then gasit:=false;
-if edit3.Text='' then gasit:=false;
-if edit4.Text='' then gasit:=false;
-if gasit then
+  // Validation for fields
+  gasit := true;
+  if Edit1.Text = '' then
+    gasit := false; // Not null fields
+  if Edit2.Text = '' then
+    gasit := false;
+  if Edit3.Text = '' then
+    gasit := false;
+  if Edit4.Text = '' then
+    gasit := false;
+  if gasit then
   begin
-  close;
-  modalresult:=mrok;
+    close;
+    modalresult := mrok;
   end;
 end;
 

@@ -3,7 +3,8 @@ unit uAddProfile;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
 
 type
@@ -33,26 +34,36 @@ implementation
 
 {$R *.dfm}
 
-//Save button funtion for add profile
+// Save button function for adding a profile
 procedure TaddProfileForm.Button2Click(Sender: TObject);
-var gasit:boolean;
+var
+  gasit: Boolean;
 begin
-//Validation for form fields
-gasit:=true;
-if edit1.Text='' then gasit:=false; // Not null fields
-if edit2.Text='' then gasit:=false;
-if edit3.Text='' then gasit:=false;
-if edit4.Text='' then gasit:=false;
-if gasit then
+  // Validation for form fields
+  gasit := True;
+  if Trim(Edit1.Text) = '' then
+    gasit := False; // Not null fields
+  if Trim(Edit2.Text) = '' then
+    gasit := False;
+  if Trim(Edit3.Text) = '' then
+    gasit := False;
+  if Trim(Edit4.Text) = '' then
+    gasit := False;
+
+  if gasit then
   begin
-  close;
-  modalresult:=mrok;
+    Close;
+    ModalResult := mrOk;
+  end
+  else
+  begin
+    ShowMessage('Please fill in all fields.');
   end;
 end;
 
-//procedure TaddProfileForm.FormShow(Sender: TObject);
-//begin
-//edit1.SetFocus;
-//end;
+// procedure TaddProfileForm.FormShow(Sender: TObject);
+// begin
+// edit1.SetFocus;
+// end;
 
 end.

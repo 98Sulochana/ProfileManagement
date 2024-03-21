@@ -3,8 +3,8 @@ object addProfileForm: TaddProfileForm
   Top = 0
   BorderIcons = [biSystemMenu]
   Caption = 'Add Profile'
-  ClientHeight = 377
-  ClientWidth = 496
+  ClientHeight = 368
+  ClientWidth = 490
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,8 +14,8 @@ object addProfileForm: TaddProfileForm
   Position = poDesktopCenter
   ScreenSnap = True
   DesignSize = (
-    496
-    377)
+    490
+    368)
   TextHeight = 15
   object Label1: TLabel
     Left = 56
@@ -144,7 +144,7 @@ object addProfileForm: TaddProfileForm
   end
   object Button1: TButton
     Left = 128
-    Top = 288
+    Top = 279
     Width = 100
     Height = 25
     Anchors = [akLeft, akBottom]
@@ -158,11 +158,10 @@ object addProfileForm: TaddProfileForm
     ModalResult = 3
     ParentFont = False
     TabOrder = 4
-    ExplicitTop = 279
   end
   object Button2: TButton
-    Left = 322
-    Top = 288
+    Left = 310
+    Top = 279
     Width = 100
     Height = 25
     Anchors = [akRight, akBottom]
@@ -177,6 +176,5 @@ object addProfileForm: TaddProfileForm
     TabOrder = 5
     OnClick = Button2Click
     ExplicitLeft = 316
-    ExplicitTop = 279
   end
 end

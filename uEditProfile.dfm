@@ -4,8 +4,8 @@ object editProfileForm: TeditProfileForm
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Edit Profile'
-  ClientHeight = 377
-  ClientWidth = 496
+  ClientHeight = 368
+  ClientWidth = 490
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,8 +15,8 @@ object editProfileForm: TeditProfileForm
   Position = poDesktopCenter
   ScreenSnap = True
   DesignSize = (
-    496
-    377)
+    490
+    368)
   TextHeight = 15
   object Label1: TLabel
     Left = 56
@@ -91,7 +91,7 @@ object editProfileForm: TeditProfileForm
   end
   object Button1: TButton
     Left = 128
-    Top = 288
+    Top = 279
     Width = 100
     Height = 25
     Anchors = [akLeft, akBottom]
@@ -105,11 +105,10 @@ object editProfileForm: TeditProfileForm
     ModalResult = 3
     ParentFont = False
     TabOrder = 4
-    ExplicitTop = 279
   end
   object Button2: TButton
-    Left = 328
-    Top = 288
+    Left = 316
+    Top = 279
     Width = 100
     Height = 25
     Anchors = [akRight, akBottom]
@@ -123,5 +122,7 @@ object editProfileForm: TeditProfileForm
     ParentFont = False
     TabOrder = 5
     OnClick = Button2Click
+    ExplicitLeft = 328
+    ExplicitTop = 288
   end
 end

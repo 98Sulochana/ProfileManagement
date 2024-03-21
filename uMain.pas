@@ -63,32 +63,36 @@ begin
 
     while addProfileForm.ShowModal = mrok do
     begin
+
       // Validate telephone number
       TelNumber := addProfileForm.Edit3.Text;
-      TelValid := (Length(TelNumber) = 10) and (StrToIntDef(TelNumber, -1) >= 0);
+      TelValid := (Length(TelNumber) = 10) and
+        (StrToIntDef(TelNumber, -1) >= 0);
 
       if not TelValid then
       begin
         ShowMessage('Please enter a valid 10-digit telephone number.');
-      end
-      else
-      begin
-        // SQL query implementation for adding data to database
-        dbModule.SQLQuery1.SQL.Clear;
-        dbModule.SQLQuery1.SQL.Add('INSERT INTO `delphi_dev`.`profiles` (`name`, `address`, `tel`, `dob`)');
-        dbModule.SQLQuery1.SQL.Add('VALUES (''' + addProfileForm.Edit1.Text + ''', ''' + addProfileForm.Edit2.Text + ''', ''' + TelNumber + ''', ''' + addProfileForm.Edit4.Text + ''')');
-        dbModule.SQLQuery1.ExecSQL(true);
-
-        // Refresh data
-        actrefreshdata.Execute;
-
-        // Exit the loop
-        Break;
+        // If telephone number is invalid, continue showing the form
+        Continue;
       end;
+
+      // SQL query implementation for adding data to database
+      dbModule.SQLQuery1.SQL.Clear;
+      dbModule.SQLQuery1.SQL.Add
+        ('INSERT INTO `delphi_dev`.`profiles` (`name`, `address`, `tel`, `dob`)');
+      dbModule.SQLQuery1.SQL.Add('VALUES (''' + addProfileForm.Edit1.Text +
+        ''', ''' + addProfileForm.Edit2.Text + ''', ''' + TelNumber + ''', ''' +
+        addProfileForm.Edit4.Text + ''')');
+      dbModule.SQLQuery1.ExecSQL(true);
+
+      // Refresh data
+      actrefreshdata.Execute;
+
+      // Exit the loop
+      Break;
     end;
   end;
 end;
-
 
 // 'Connect to DB' option implementation for connect application with database
 procedure TmainForm.actconnectExecute(Sender: TObject);
