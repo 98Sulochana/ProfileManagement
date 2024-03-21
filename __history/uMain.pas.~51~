@@ -55,40 +55,41 @@ var
 begin
   if dbModule.SQLConnection1.Connected then
   begin
-
-    // Clear fields  addProfileForm
+    // Clear fields in addProfileForm
     addProfileForm.Edit1.Text := '';
     addProfileForm.Edit2.Text := '';
     addProfileForm.Edit3.Text := '';
     addProfileForm.Edit4.Text := '';
 
-    if addProfileForm.ShowModal = mrok then
+    while addProfileForm.ShowModal = mrok do
     begin
 
-       // Validate telephone number
-       TelNumber := addProfileForm.Edit3.Text;
-       TelValid := (Length(TelNumber) = 10) and (StrToIntDef(TelNumber, -1) >= 0);
+      // Validate telephone number
+      TelNumber := addProfileForm.Edit3.Text;
+      TelValid := (Length(TelNumber) = 10) and
+        (StrToIntDef(TelNumber, -1) >= 0);
 
-       if not TelValid then
-       begin
-        ShowMessage('Please enter a valid 10-digit telephone number.');
-        addProfileForm.ShowModal; // Exit the procedure if telephone number is not valid
-      end
-      else
+      if not TelValid then
       begin
-      // Sql quary implementation for adding data to database
+        ShowMessage('Please enter a valid 10-digit telephone number.');
+        // If telephone number is invalid, continue showing the form
+        Continue;
+      end;
+
+      // SQL query implementation for adding data to database
       dbModule.SQLQuery1.SQL.Clear;
       dbModule.SQLQuery1.SQL.Add
         ('INSERT INTO `delphi_dev`.`profiles` (`name`, `address`, `tel`, `dob`)');
       dbModule.SQLQuery1.SQL.Add('VALUES (''' + addProfileForm.Edit1.Text +
-        ''', ''' + addProfileForm.Edit2.Text + ''', ''' +
-        addProfileForm.Edit3.Text + ''', ''' +
+        ''', ''' + addProfileForm.Edit2.Text + ''', ''' + TelNumber + ''', ''' +
         addProfileForm.Edit4.Text + ''')');
       dbModule.SQLQuery1.ExecSQL(true);
 
       // Refresh data
       actrefreshdata.Execute;
-      end;
+
+      // Exit the loop
+      Break;
     end;
   end;
 end;

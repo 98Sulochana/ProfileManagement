@@ -50,12 +50,8 @@ begin
     gasit := false;
   if gasit then
   begin
-    Close;
-    ModalResult := mrOk;
-  end
-  else
-  begin
-    ShowMessage('Please fill in all fields.');
+    close;
+    modalresult := mrok;
   end;
 end;
 

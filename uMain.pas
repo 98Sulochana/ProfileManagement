@@ -131,36 +131,57 @@ end;
 
 // 'Edit Profile' option implementation for edit profile details
 procedure TmainForm.acteditprofileExecute(Sender: TObject);
+var
+  TelNumber: string;
+  TelValid: Boolean;
 begin
   if (dbModule.SQLConnection1.Connected) and
-    (dbModule.profilesDataset.IsEmpty = false) then
+    (not dbModule.profilesDataset.IsEmpty) then
   begin
+    repeat
+      editProfileForm.Edit1.Text := dbModule.profilesDatasetname.Value;
+      editProfileForm.Edit2.Text := dbModule.profilesDatasetaddress.Value;
+      editProfileForm.Edit3.Text := dbModule.profilesDatasettel.Value;
+      editProfileForm.Edit4.Text := dbModule.profilesDatasetdob.Value;
 
-    editProfileForm.Edit1.Text := dbModule.profilesDatasetname.Value;
-    editProfileForm.Edit2.Text := dbModule.profilesDatasetaddress.Value;
-    editProfileForm.Edit3.Text := dbModule.profilesDatasettel.Value;
-    editProfileForm.Edit4.Text := dbModule.profilesDatasetdob.Value;
-    if editProfileForm.ShowModal = mrok then
-    begin
+      if editProfileForm.ShowModal = mrok then
+      begin
+        // Validate telephone number
+        TelNumber := editProfileForm.Edit3.Text;
+        TelValid := (Length(TelNumber) = 10) and (StrToIntDef(TelNumber, -1) >= 0);
 
-      // Sql quary implementation for edit data in database
-      dbModule.SQLQuery1.SQL.Clear;
-      dbModule.SQLQuery1.SQL.Add
-        ('UPDATE `delphi_dev`.`profiles` SET `name` = ''' +
-        editProfileForm.Edit1.Text + ''', `address` = ''' +
-        editProfileForm.Edit2.Text + ''', `tel` = ''' +
-        editProfileForm.Edit3.Text + ''', `dob` = ''' +
-        editProfileForm.Edit4.Text + ''' WHERE (`id` = ''' +
-        inttostr(dbModule.profilesDatasetid.Value) + ''')');
-      dbModule.SQLQuery1.ExecSQL(true);
+        if not TelValid then
+        begin
+          ShowMessage('Please enter a valid 10-digit telephone number.');
+          Continue; // Show the edit form again if telephone number is not valid
+        end;
 
-      // Refresh data
-      actrefreshdata.Execute;
+        // SQL query implementation for edit data in database
+        dbModule.SQLQuery1.SQL.Clear;
+        dbModule.SQLQuery1.SQL.Add('UPDATE `delphi_dev`.`profiles` SET `name` = ''' +
+          editProfileForm.Edit1.Text + ''', `address` = ''' +
+          editProfileForm.Edit2.Text + ''', `tel` = ''' +
+          editProfileForm.Edit3.Text + ''', `dob` = ''' +
+          editProfileForm.Edit4.Text + ''' WHERE (`id` = ''' +
+          IntToStr(dbModule.profilesDatasetid.Value) + ''')');
+        dbModule.SQLQuery1.ExecSQL(true);
 
-    end;
+        // Refresh data
+        actrefreshdata.Execute;
 
+        // Exit the loop if the operation is successful
+        Break;
+      end
+      else
+      begin
+        // User canceled the operation, exit the loop
+        Break;
+      end;
+    until False; // Loop indefinitely until the user cancels or provides valid data
   end;
 end;
+
+
 
 // 'Exit application' option implementation for exit from application
 procedure TmainForm.actexitappExecute(Sender: TObject);
