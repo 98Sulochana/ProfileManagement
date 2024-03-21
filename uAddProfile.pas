@@ -9,14 +9,14 @@ uses
 
 type
   TaddProfileForm = class(TForm)
-    Label1: TLabel;
-    Edit1: TEdit;
-    Label2: TLabel;
-    Edit2: TEdit;
-    Label3: TLabel;
-    Edit3: TEdit;
-    Label4: TLabel;
-    Edit4: TEdit;
+    lblname: TLabel;
+    editname: TEdit;
+    lbladdress: TLabel;
+    editaddress: TEdit;
+    lbltel: TLabel;
+    edittel: TEdit;
+    lbldob: TLabel;
+    editdob: TEdit;
     Button1: TButton;
     Button2: TButton;
     Label5: TLabel;
@@ -41,13 +41,13 @@ var
 begin
   // Validation for form fields
   gasit := True;
-  if Trim(Edit1.Text) = '' then
+  if Trim(editname.Text) = '' then
     gasit := False; // Not null fields
-  if Trim(Edit2.Text) = '' then
+  if Trim(editaddress.Text) = '' then
     gasit := False;
-  if Trim(Edit3.Text) = '' then
+  if Trim(edittel.Text) = '' then
     gasit := False;
-  if Trim(Edit4.Text) = '' then
+  if Trim(editdob.Text) = '' then
     gasit := False;
 
   if gasit then

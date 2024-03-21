@@ -56,16 +56,16 @@ begin
   if dbModule.SQLConnection1.Connected then
   begin
     // Clear fields in addProfileForm
-    addProfileForm.Edit1.Text := '';
-    addProfileForm.Edit2.Text := '';
-    addProfileForm.Edit3.Text := '';
-    addProfileForm.Edit4.Text := '';
+    addProfileForm.editname.Text := '';
+    addProfileForm.editaddress.Text := '';
+    addProfileForm.edittel.Text := '';
+    addProfileForm.editdob.Text := '';
 
     while addProfileForm.ShowModal = mrok do
     begin
 
       // Validate telephone number
-      TelNumber := addProfileForm.Edit3.Text;
+      TelNumber := addProfileForm.edittel.Text;
       TelValid := (Length(TelNumber) = 10) and
         (StrToIntDef(TelNumber, -1) >= 0);
 
@@ -80,9 +80,9 @@ begin
       dbModule.SQLQuery1.SQL.Clear;
       dbModule.SQLQuery1.SQL.Add
         ('INSERT INTO `delphi_dev`.`profiles` (`name`, `address`, `tel`, `dob`)');
-      dbModule.SQLQuery1.SQL.Add('VALUES (''' + addProfileForm.Edit1.Text +
-        ''', ''' + addProfileForm.Edit2.Text + ''', ''' + TelNumber + ''', ''' +
-        addProfileForm.Edit4.Text + ''')');
+      dbModule.SQLQuery1.SQL.Add('VALUES (''' + addProfileForm.editname.Text +
+        ''', ''' + addProfileForm.editaddress.Text + ''', ''' + TelNumber +
+        ''', ''' + addProfileForm.editdob.Text + ''')');
       dbModule.SQLQuery1.ExecSQL(true);
 
       // Refresh data
@@ -139,16 +139,17 @@ begin
     (not dbModule.profilesDataset.IsEmpty) then
   begin
     repeat
-      editProfileForm.Edit1.Text := dbModule.profilesDatasetname.Value;
-      editProfileForm.Edit2.Text := dbModule.profilesDatasetaddress.Value;
-      editProfileForm.Edit3.Text := dbModule.profilesDatasettel.Value;
-      editProfileForm.Edit4.Text := dbModule.profilesDatasetdob.Value;
+      editProfileForm.editname.Text := dbModule.profilesDatasetname.Value;
+      editProfileForm.editaddress.Text := dbModule.profilesDatasetaddress.Value;
+      editProfileForm.edittel.Text := dbModule.profilesDatasettel.Value;
+      editProfileForm.editdob.Text := dbModule.profilesDatasetdob.Value;
 
       if editProfileForm.ShowModal = mrok then
       begin
         // Validate telephone number
-        TelNumber := editProfileForm.Edit3.Text;
-        TelValid := (Length(TelNumber) = 10) and (StrToIntDef(TelNumber, -1) >= 0);
+        TelNumber := editProfileForm.edittel.Text;
+        TelValid := (Length(TelNumber) = 10) and
+          (StrToIntDef(TelNumber, -1) >= 0);
 
         if not TelValid then
         begin
@@ -158,12 +159,13 @@ begin
 
         // SQL query implementation for edit data in database
         dbModule.SQLQuery1.SQL.Clear;
-        dbModule.SQLQuery1.SQL.Add('UPDATE `delphi_dev`.`profiles` SET `name` = ''' +
-          editProfileForm.Edit1.Text + ''', `address` = ''' +
-          editProfileForm.Edit2.Text + ''', `tel` = ''' +
-          editProfileForm.Edit3.Text + ''', `dob` = ''' +
-          editProfileForm.Edit4.Text + ''' WHERE (`id` = ''' +
-          IntToStr(dbModule.profilesDatasetid.Value) + ''')');
+        dbModule.SQLQuery1.SQL.Add
+          ('UPDATE `delphi_dev`.`profiles` SET `name` = ''' +
+          editProfileForm.editname.Text + ''', `address` = ''' +
+          editProfileForm.editaddress.Text + ''', `tel` = ''' +
+          editProfileForm.edittel.Text + ''', `dob` = ''' +
+          editProfileForm.editdob.Text + ''' WHERE (`id` = ''' +
+          inttostr(dbModule.profilesDatasetid.Value) + ''')');
         dbModule.SQLQuery1.ExecSQL(true);
 
         // Refresh data
@@ -177,11 +179,10 @@ begin
         // User canceled the operation, exit the loop
         Break;
       end;
-    until False; // Loop indefinitely until the user cancels or provides valid data
+    until false;
+    // Loop indefinitely until the user cancels or provides valid data
   end;
 end;
-
-
 
 // 'Exit application' option implementation for exit from application
 procedure TmainForm.actexitappExecute(Sender: TObject);

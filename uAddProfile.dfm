@@ -3,8 +3,8 @@ object addProfileForm: TaddProfileForm
   Top = 0
   BorderIcons = [biSystemMenu]
   Caption = 'Add Profile'
-  ClientHeight = 368
-  ClientWidth = 490
+  ClientHeight = 377
+  ClientWidth = 496
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,10 +14,10 @@ object addProfileForm: TaddProfileForm
   Position = poDesktopCenter
   ScreenSnap = True
   DesignSize = (
-    490
-    368)
+    496
+    377)
   TextHeight = 15
-  object Label1: TLabel
+  object lblname: TLabel
     Left = 56
     Top = 104
     Width = 34
@@ -31,7 +31,7 @@ object addProfileForm: TaddProfileForm
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label2: TLabel
+  object lbladdress: TLabel
     Left = 36
     Top = 144
     Width = 54
@@ -45,7 +45,7 @@ object addProfileForm: TaddProfileForm
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label3: TLabel
+  object lbltel: TLabel
     Left = 50
     Top = 184
     Width = 40
@@ -59,7 +59,7 @@ object addProfileForm: TaddProfileForm
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label4: TLabel
+  object lbldob: TLabel
     Left = 64
     Top = 224
     Width = 26
@@ -86,7 +86,7 @@ object addProfileForm: TaddProfileForm
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Edit1: TEdit
+  object editname: TEdit
     Left = 128
     Top = 101
     Width = 300
@@ -98,9 +98,9 @@ object addProfileForm: TaddProfileForm
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
-    Text = 'Edit1'
+    Text = 'editname'
   end
-  object Edit2: TEdit
+  object editaddress: TEdit
     Left = 128
     Top = 141
     Width = 300
@@ -114,7 +114,7 @@ object addProfileForm: TaddProfileForm
     TabOrder = 1
     Text = 'Edit1'
   end
-  object Edit3: TEdit
+  object edittel: TEdit
     Left = 128
     Top = 181
     Width = 300
@@ -128,7 +128,7 @@ object addProfileForm: TaddProfileForm
     TabOrder = 2
     Text = 'Edit1'
   end
-  object Edit4: TEdit
+  object editdob: TEdit
     Left = 128
     Top = 221
     Width = 300
@@ -144,7 +144,7 @@ object addProfileForm: TaddProfileForm
   end
   object Button1: TButton
     Left = 128
-    Top = 279
+    Top = 288
     Width = 100
     Height = 25
     Anchors = [akLeft, akBottom]
@@ -158,10 +158,11 @@ object addProfileForm: TaddProfileForm
     ModalResult = 3
     ParentFont = False
     TabOrder = 4
+    ExplicitTop = 279
   end
   object Button2: TButton
-    Left = 310
-    Top = 279
+    Left = 316
+    Top = 288
     Width = 100
     Height = 25
     Anchors = [akRight, akBottom]
@@ -175,6 +176,7 @@ object addProfileForm: TaddProfileForm
     ParentFont = False
     TabOrder = 5
     OnClick = Button2Click
-    ExplicitLeft = 316
+    ExplicitLeft = 310
+    ExplicitTop = 279
   end
 end

@@ -9,15 +9,15 @@ uses
 
 type
   TeditProfileForm = class(TForm)
-    Label1: TLabel;
-    Label2: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
+    lblname: TLabel;
+    lbladdress: TLabel;
+    lblphone: TLabel;
+    lbldob: TLabel;
     Label5: TLabel;
-    Edit1: TEdit;
-    Edit2: TEdit;
-    Edit3: TEdit;
-    Edit4: TEdit;
+    editname: TEdit;
+    editaddress: TEdit;
+    edittel: TEdit;
+    editdob: TEdit;
     Button1: TButton;
     Button2: TButton;
     procedure Button2Click(Sender: TObject);
@@ -40,13 +40,13 @@ var
 begin
   // Validation for fields
   gasit := true;
-  if Edit1.Text = '' then
+  if editname.Text = '' then
     gasit := false; // Not null fields
-  if Edit2.Text = '' then
+  if editaddress.Text = '' then
     gasit := false;
-  if Edit3.Text = '' then
+  if edittel.Text = '' then
     gasit := false;
-  if Edit4.Text = '' then
+  if editdob.Text = '' then
     gasit := false;
   if gasit then
   begin
