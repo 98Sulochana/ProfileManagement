@@ -104,7 +104,7 @@ object mainForm: TmainForm
               end
               item
                 Action = actdisconnect
-                Caption = 'Disconnect from DB'
+                Caption = '&Disconnect from DB'
               end
               item
                 Action = actaddprofile
@@ -120,9 +120,11 @@ object mainForm: TmainForm
               end
               item
                 Action = actrefreshdata
+                Caption = '&Refresh Data'
               end
               item
                 Action = actexitapp
+                Caption = 'E&xit Application'
               end>
             Caption = '&Profiles'
           end>

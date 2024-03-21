@@ -32,7 +32,13 @@ object deleteProfileForm: TdeleteProfileForm
     Height = 25
     Anchors = [akRight, akBottom]
     Caption = 'DELETE'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
     ModalResult = 1
+    ParentFont = False
     TabOrder = 0
     OnClick = Button1Click
   end
@@ -44,7 +50,13 @@ object deleteProfileForm: TdeleteProfileForm
     Anchors = [akLeft, akBottom]
     Cancel = True
     Caption = 'CANCEL'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
     ModalResult = 3
+    ParentFont = False
     TabOrder = 1
   end
 end

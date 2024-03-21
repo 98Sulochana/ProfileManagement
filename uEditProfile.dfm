@@ -97,7 +97,13 @@ object editProfileForm: TeditProfileForm
     Anchors = [akLeft, akBottom]
     Cancel = True
     Caption = 'CANCEL'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
     ModalResult = 3
+    ParentFont = False
     TabOrder = 4
     ExplicitTop = 279
   end
@@ -109,6 +115,12 @@ object editProfileForm: TeditProfileForm
     Anchors = [akRight, akBottom]
     Caption = 'EDIT'
     Default = True
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
     TabOrder = 5
     OnClick = Button2Click
   end
